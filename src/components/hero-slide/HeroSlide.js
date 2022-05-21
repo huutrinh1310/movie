@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal'
-import tmdb, { category, movieType } from '../../api/tmdbApi';
+import { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 import tmdbApi from '../../api/tmdbApi';
 
@@ -24,7 +24,6 @@ function HeroSlide() {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, { params });
                 setMovieItems(response.results.slice(0, 4));
-                console.log(response)
             } catch {
                 console.log('error');
             }
